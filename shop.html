@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shop handloom sarees, pure cotton yardage, silk fabrics, and ethnic wear at SV TEXTILES. Filter by category, price, weave, and selling units." />
+  <title>Shop Textiles Catalogue — SV TEXTILES</title>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>" />
+  <style>
+    .shop-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .shop-sidebar {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 1.75rem;
+      position: sticky;
+      top: 100px;
+    }
+    .filter-group {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    .filter-group:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .filter-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .filter-list label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--color-charcoal-light);
+      margin-bottom: 0.6rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .filter-list label:hover {
+      color: var(--color-primary);
+    }
+    .filter-list input[type="checkbox"],
+    .filter-list input[type="radio"] {
+      accent-color: var(--color-primary);
+      width: 16px;
+      height: 16px;
+    }
+    .shop-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .shop-active-filters {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .active-filter-pill {
+      background: var(--color-beige);
+      color: var(--color-primary-dark);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .active-filter-pill button {
+      font-weight: bold;
+      color: var(--color-muted);
+    }
+    .active-filter-pill button:hover {
+      color: var(--color-danger);
+    }
+    .shop-mobile-filter-bar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Notice -->
+  <aside class="demo-badge-bar">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div>
+        <span class="demo-pill">DEMO CATALOGUE</span>
+        <span>Filter, search, add variants, and inspect real-time selling units.</span>
+      </div>
+      <div>
+        <a href="admin.html" style="font-weight: 600; text-decoration: underline; color: var(--color-primary);">Admin Dashboard &rarr;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="menu-toggle" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <a href="index.html" class="brand-logo" aria-label="SV TEXTILES Homepage">
+          <span class="logo-main">SV TEXTILES</span>
+          <span class="logo-sub" data-i18n="brand.tagline">Quality &bull; Comfort &bull; Tradition</span>
+        </a>
+      </div>
+
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+        <a href="shop.html" class="nav-link active" data-i18n="nav.shopAll">Shop All</a>
+        <a href="shop.html?category=cotton-fabrics" class="nav-link" data-i18n="nav.cotton">Cotton</a>
+        <a href="shop.html?category=silk-fabrics" class="nav-link" data-i18n="nav.silk">Silk</a>
+        <a href="shop.html?category=sarees" class="nav-link" data-i18n="nav.sarees">Sarees</a>
+        <a href="shop.html?filter=new" class="nav-link highlight" data-i18n="nav.newArrivals">New Arrivals</a>
+        <a href="wholesale.html" class="nav-link" data-i18n="nav.wholesale">Wholesale</a>
+        <a href="about.html" class="nav-link" data-i18n="nav.aboutUs">About Us</a>
+        <a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switcher" aria-label="Select Language" style="margin-right: 0.25rem;">
+          <button type="button" class="lang-btn active" data-lang="en" title="English">EN</button>
+          <span class="lang-divider">|</span>
+          <button type="button" class="lang-btn" data-lang="ta" title="தமிழ்">தமிழ்</button>
+        </div>
+
+        <button class="action-btn btn-search-trigger" title="Search Catalogue" aria-label="Search Catalogue">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <a href="login.html" class="action-btn" title="Customer Account" aria-label="Customer Account">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="wishlist.html" class="action-btn" title="Wishlist" aria-label="Wishlist">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="badge-count header-wishlist-count" style="display: none;">0</span>
+        </a>
+        <a href="cart.html" class="action-btn" title="Shopping Bag" aria-label="Shopping Bag">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge-count header-cart-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop">
+    <div class="mobile-nav-drawer">
+      <div class="mobile-nav-header">
+        <div class="brand-logo">
+          <span class="logo-main" style="font-size: 1.4rem;">SV TEXTILES</span>
+          <span class="logo-sub" data-i18n="brand.tagline">Quality &bull; Comfort &bull; Tradition</span>
+        </div>
+        <button class="modal-close-btn" id="btnCloseMobileNav">&times;</button>
+      </div>
+      <div class="mobile-nav-body">
+        <nav class="mobile-nav-links">
+          <div style="padding: 0.5rem 0 1rem 0; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 0.85rem; color: var(--color-muted); font-weight: 600;">Language / மொழி:</span>
+            <div class="lang-switcher" aria-label="Select Language">
+              <button type="button" class="lang-btn active" data-lang="en" title="English">EN</button>
+              <span class="lang-divider">|</span>
+              <button type="button" class="lang-btn" data-lang="ta" title="தமிழ்">தமிழ்</button>
+            </div>
+          </div>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="shop.html" class="active" data-i18n="nav.shopAll">Shop All Catalogue</a>
+          <a href="shop.html?category=cotton-fabrics" data-i18n="cat.cotton-fabrics">Cotton Fabrics</a>
+          <a href="shop.html?category=silk-fabrics" data-i18n="cat.silk-fabrics">Silk Fabrics</a>
+          <a href="shop.html?category=sarees" data-i18n="cat.sarees">Sarees</a>
+          <a href="shop.html?category=dress-materials" data-i18n="cat.dress-materials">Dress Materials</a>
+          <a href="shop.html?category=kurtis-ethnic-wear" data-i18n="cat.kurtis-ethnic-wear">Kurtis &amp; Ethnic Wear</a>
+          <a href="wholesale.html" data-i18n="nav.wholesale">Wholesale Lots</a>
+          <a href="cart.html" data-i18n="nav.cart">Shopping Bag</a>
+          <a href="wishlist.html" data-i18n="nav.wishlist">Wishlist</a>
+          <a href="admin.html" data-i18n="nav.admin">Admin Dashboard</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <main class="section-padding">
+    <div class="container">
+      <!-- Breadcrumb & Header -->
+      <div style="margin-bottom: 2rem;">
+        <span class="section-label">All Textiles &amp; Garments</span>
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;" id="catalogPageTitle" data-i18n="shop.title">Textile Catalogue</h1>
+        <p style="color: var(--color-muted); max-width: 700px;" data-i18n="shop.subtitle">
+          Filter by category, authentic selling units (metre, piece, set, pack), or search by fabric weave.
+        </p>
+      </div>
+
+      <!-- Mobile Filter Trigger -->
+      <div class="shop-mobile-filter-bar">
+        <button class="btn btn-secondary btn-sm" id="btnToggleMobileFilters">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          <span data-i18n="shop.filters">Filters</span>
+        </button>
+        <span id="mobileCountDisplay" style="font-size: 0.85rem; color: var(--color-muted);"></span>
+      </div>
+
+      <div class="shop-layout">
+        <!-- Sidebar Filters -->
+        <aside class="shop-sidebar" id="filterSidebar">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.25rem;" data-i18n="shop.filters">Filters</h3>
+            <button id="btnClearAllFilters" style="font-size: 0.8rem; color: var(--color-gold-hover); font-weight: 600; text-decoration: underline;" data-i18n="shop.clear_all">Clear All</button>
+          </div>
+
+          <!-- Category Filter -->
+          <div class="filter-group">
+            <div class="filter-title" data-i18n="shop.category">Category</div>
+            <div class="filter-list" id="categoryFilterList">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Selling Unit Filter -->
+          <div class="filter-group">
+            <div class="filter-title" data-i18n="shop.selling_unit">Selling Unit</div>
+            <div class="filter-list">
+              <label><input type="checkbox" name="unitFilter" value="metre" /> <span data-i18n="shop.unit_metre">By the Metre (Fabrics)</span></label>
+              <label><input type="checkbox" name="unitFilter" value="piece" /> <span data-i18n="shop.unit_piece">By the Piece (Sarees, Kurtis)</span></label>
+              <label><input type="checkbox" name="unitFilter" value="set" /> <span data-i18n="shop.unit_set">By the Set (Suits, Bedsheets)</span></label>
+              <label><input type="checkbox" name="unitFilter" value="pack" /> <span data-i18n="shop.unit_pack">By the Pack (Wholesale Bales)</span></label>
+            </div>
+          </div>
+
+          <!-- Price Range Filter -->
+          <div class="filter-group">
+            <div class="filter-title" data-i18n="shop.price_range">Price Range (₹)</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+              <input type="number" id="priceMin" class="form-control" placeholder="Min" style="padding: 0.4rem 0.6rem; font-size: 0.85rem;" min="0" />
+              <span>to</span>
+              <input type="number" id="priceMax" class="form-control" placeholder="Max" style="padding: 0.4rem 0.6rem; font-size: 0.85rem;" min="0" />
+            </div>
+            <button id="btnApplyPrice" class="btn btn-sm btn-secondary btn-block" style="margin-top: 0.75rem;" data-i18n="shop.apply_price">Apply Price</button>
+          </div>
+
+          <!-- Stock Availability -->
+          <div class="filter-group">
+            <div class="filter-title" data-i18n="shop.availability">Availability</div>
+            <div class="filter-list">
+              <label><input type="checkbox" id="filterInStockOnly" /> <span data-i18n="shop.in_stock_only">In Stock Only</span></label>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Product Listings Column -->
+        <section>
+          <!-- Toolbar -->
+          <div class="shop-toolbar">
+            <div style="font-size: 0.9rem; color: var(--color-charcoal);">
+              <span data-i18n="shop.showing">Showing</span> <strong id="productMatchCount">0</strong> <span data-i18n="shop.products">products</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <label for="sortBySelect" style="font-size: 0.85rem; font-weight: 600; color: var(--color-primary);" data-i18n="shop.sort_by">Sort By:</label>
+              <select id="sortBySelect" class="form-control" style="width: auto; padding: 0.45rem 1.8rem 0.45rem 0.8rem; font-size: 0.88rem;">
+                <option value="featured" data-i18n="shop.sort_featured">Featured / Curated</option>
+                <option value="price-low" data-i18n="shop.sort_price_low">Price: Low to High</option>
+                <option value="price-high" data-i18n="shop.sort_price_high">Price: High to Low</option>
+                <option value="newest" data-i18n="shop.sort_newest">Newest Arrivals</option>
+                <option value="name-az" data-i18n="shop.sort_name_az">Name: A to Z</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Active Filter Tags -->
+          <div class="shop-active-filters" id="activeFilterTags"></div>
+
+          <!-- Products Grid -->
+          <div class="products-grid" id="shopProductsGrid" style="margin-top: 0;">
+            <!-- Rendered by shop.js -->
+          </div>
+
+          <!-- Empty State -->
+          <div id="shopEmptyState" style="display: none; text-align: center; padding: 4rem 2rem; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm); margin-top: 1rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🧵</div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;" data-i18n="shop.empty_title">No Matching Textiles Found</h3>
+            <p style="color: var(--color-muted); max-width: 480px; margin: 0 auto 1.5rem;" data-i18n="shop.empty_desc">
+              We couldn't find any fabrics matching your active filter criteria. Try clearing some filters or searching for another weave.
+            </p>
+            <button class="btn btn-primary" id="btnResetFiltersEmpty" data-i18n="shop.reset_filters">Reset All Filters</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 SV TEXTILES. <span data-i18n="footer.rights">All rights reserved. Quality • Comfort • Tradition.</span></div>
+      <div class="footer-bottom-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="wholesale.html" data-i18n="nav.wholesale">Wholesale</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/919000000000" class="floating-whatsapp" target="_blank" rel="noopener noreferrer">
+    <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <span>Chat on WhatsApp</span>
+  </a>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/products-data.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

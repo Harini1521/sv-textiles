@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Secure Checkout — SV TEXTILES. Deliveries across all Indian pin codes." />
+  <title>Checkout & Delivery Details — SV TEXTILES</title>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>" />
+  <style>
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .checkout-form-box {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 2.5rem;
+    }
+    .checkout-step-title {
+      font-size: 1.35rem;
+      color: var(--color-primary);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      color: var(--color-white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .payment-option-card {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .payment-option-card:hover,
+    .payment-option-card.selected {
+      border-color: var(--color-primary);
+      background-color: var(--color-ivory-soft);
+    }
+    .payment-option-card input[type="radio"] {
+      margin-top: 4px;
+      accent-color: var(--color-primary);
+      width: 18px;
+      height: 18px;
+    }
+    .checkout-summary-box {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 2rem;
+      position: sticky;
+      top: 100px;
+    }
+    .order-item-mini {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    .order-item-mini img {
+      width: 52px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+    }
+    .summary-calc-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Notice -->
+  <aside class="demo-badge-bar">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div>
+        <span class="demo-pill">SECURE CHECKOUT</span>
+        <span>Orders are verified authoritatively against available stock before placement.</span>
+      </div>
+      <div>
+        <a href="cart.html" style="font-weight: 600; text-decoration: underline; color: var(--color-primary);">&larr; Return to Bag</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner" style="justify-content: space-between;">
+      <a href="index.html" class="brand-logo" style="align-items: center;">
+        <span class="logo-main">SV TEXTILES</span>
+        <span class="logo-sub" data-i18n="brand.tagline">Quality &bull; Comfort &bull; Tradition</span>
+      </a>
+      <div class="lang-switcher" aria-label="Select Language">
+        <button type="button" class="lang-btn active" data-lang="en" title="English">EN</button>
+        <span class="lang-divider">|</span>
+        <button type="button" class="lang-btn" data-lang="ta" title="தமிழ்">தமிழ்</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section-padding">
+    <div class="container">
+      <div style="margin-bottom: 2rem; text-align: center;">
+        <span class="section-label">Final Step</span>
+        <h1 style="font-size: 2.25rem;">Complete Your Order</h1>
+      </div>
+
+      <div class="checkout-grid">
+        <!-- Customer Details & Payment Column -->
+        <section class="checkout-form-box">
+          <form id="checkoutForm" novalidate>
+            <!-- Step 1: Customer Info -->
+            <div style="margin-bottom: 2.5rem;">
+              <h2 class="checkout-step-title">
+                <span class="step-number">1</span> Customer Information
+              </h2>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="custFullName">Full Name <span class="req">*</span></label>
+                  <input type="text" id="custFullName" class="form-control" placeholder="e.g. Ananya Sundaram" required />
+                  <div class="invalid-feedback">Please provide your full name.</div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="custMobile">Mobile Phone Number (India) <span class="req">*</span></label>
+                  <input type="tel" id="custMobile" class="form-control" placeholder="10-digit mobile number" maxlength="10" required />
+                  <div class="invalid-feedback">Please enter a valid 10-digit Indian mobile number.</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="custEmail">Email Address <span class="req">*</span></label>
+                <input type="email" id="custEmail" class="form-control" placeholder="ananya@example.com" required />
+                <div class="invalid-feedback">Please enter a valid email for order updates.</div>
+              </div>
+            </div>
+
+            <!-- Step 2: Delivery Address -->
+            <div style="margin-bottom: 2.5rem;">
+              <h2 class="checkout-step-title">
+                <span class="step-number">2</span> Delivery Address (PAN India)
+              </h2>
+
+              <div class="form-group">
+                <label class="form-label" for="custAddress">Street Address / Flat / Building <span class="req">*</span></label>
+                <textarea id="custAddress" class="form-control" rows="2" placeholder="House/Flat No, Apartment/Street Name, Locality" required></textarea>
+                <div class="invalid-feedback">Please provide a complete street delivery address.</div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="custCity">City / District <span class="req">*</span></label>
+                  <input type="text" id="custCity" class="form-control" placeholder="e.g. Coimbatore / Surat" required />
+                  <div class="invalid-feedback">Please enter your city.</div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="custState">State <span class="req">*</span></label>
+                  <select id="custState" class="form-control" required>
+                    <option value="">Select State</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Delhi">Delhi NCR</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Other">Other State / UT</option>
+                  </select>
+                  <div class="invalid-feedback">Please select your delivery state.</div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="custPincode">Indian Postal PIN Code <span class="req">*</span></label>
+                  <input type="text" id="custPincode" class="form-control" placeholder="6-digit PIN (e.g. 600001)" maxlength="6" required />
+                  <div class="invalid-feedback">Enter a valid 6-digit Indian PIN code.</div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="custNotes">Special Delivery Notes (Optional)</label>
+                  <input type="text" id="custNotes" class="form-control" placeholder="e.g. Landmark, daytime delivery" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Payment Method -->
+            <div style="margin-bottom: 2.5rem;">
+              <h2 class="checkout-step-title">
+                <span class="step-number">3</span> Payment Selection
+              </h2>
+
+              <label class="payment-option-card selected" id="cardCOD">
+                <input type="radio" name="paymentOption" value="cod" checked />
+                <div>
+                  <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 2px;">
+                    Cash on Delivery (COD)
+                  </div>
+                  <div style="font-size: 0.85rem; color: var(--color-muted);">
+                    Pay in cash upon physical receipt of your package. Available for most verified Indian postal codes.
+                  </div>
+                </div>
+              </label>
+
+              <label class="payment-option-card" id="cardOnline">
+                <input type="radio" name="paymentOption" value="online" />
+                <div>
+                  <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 2px;">
+                    Online Payment (UPI, Netbanking, Cards)
+                  </div>
+                  <div style="font-size: 0.85rem; color: var(--color-muted);">
+                    Requires integrated payment gateway (e.g. Razorpay/Stripe). In demo mode, this places an order pending gateway verification.
+                  </div>
+                </div>
+              </label>
+
+              <div id="onlineGatewayNotice" style="display: none; background: var(--color-ivory); border-left: 3px solid var(--color-gold); padding: 0.85rem 1rem; font-size: 0.82rem; margin-top: 0.75rem;">
+                <strong>Security Notice:</strong> In accordance with our security principles, SV Textiles never directly collects or stores raw credit card numbers or UPI PINs. Online orders are verified through a trusted backend gateway.
+              </div>
+            </div>
+
+            <!-- Submission Button -->
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="btnSubmitOrder">
+              Place Order &amp; Confirm Booking
+            </button>
+            <div id="orderErrorMessage" style="color: var(--color-danger); font-size: 0.85rem; margin-top: 0.75rem; text-align: center; display: none;"></div>
+          </form>
+        </section>
+
+        <!-- Order Summary Column -->
+        <aside class="checkout-summary-box checkout-summary-col">
+          <h3 style="font-size: 1.3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border-light);">
+            Order Summary
+          </h3>
+
+          <div id="checkoutItemsList" style="max-height: 320px; overflow-y: auto; margin-bottom: 1.5rem;">
+            <!-- Rendered by checkout.js -->
+          </div>
+
+          <div class="summary-calc-row">
+            <span style="color: var(--color-muted);">Subtotal:</span>
+            <strong id="chkSubtotal">₹0</strong>
+          </div>
+
+          <div class="summary-calc-row" id="chkDiscountRow" style="display: none; color: var(--color-success);">
+            <span>Voucher Discount:</span>
+            <strong id="chkDiscount">-₹0</strong>
+          </div>
+
+          <div class="summary-calc-row">
+            <span style="color: var(--color-muted);">Shipping:</span>
+            <span id="chkShipping">FREE</span>
+          </div>
+
+          <div class="summary-calc-row" style="border-top: 1px solid var(--color-border); padding-top: 1rem; margin-top: 1rem; font-size: 1.25rem; font-weight: 700;">
+            <span>Total Payable:</span>
+            <span id="chkFinalTotal" style="color: var(--color-primary);">₹0</span>
+          </div>
+
+          <div style="margin-top: 1.5rem; background: var(--color-ivory); border-radius: var(--radius-sm); padding: 0.85rem; font-size: 0.78rem; color: var(--color-muted); line-height: 1.5;">
+            🔒 <strong>Authoritative Validation:</strong> Stock is reserved and deducted upon order confirmation. Tamper-proof packaging with verified textile seal.
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 SV TEXTILES. Quality &bull; Comfort &bull; Tradition.</div>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/products-data.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

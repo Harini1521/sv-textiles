@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wholesale & Bulk Textile Inquiries — SV TEXTILES. Supplying boutiques, garment makers, and retail cloth stores across India." />
+  <title>Wholesale &amp; Bulk Textile Enquiries — SV TEXTILES</title>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>" />
+  <style>
+    .wholesale-hero {
+      background: linear-gradient(rgba(13, 38, 31, 0.9), rgba(21, 61, 50, 0.85)),
+                  url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: var(--color-white);
+      padding: 4.5rem 0;
+      text-align: center;
+    }
+    .wholesale-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .enquiry-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .b2b-perks-card {
+      background: var(--color-ivory-soft);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 2rem;
+    }
+    .perk-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .perk-item:last-child {
+      margin-bottom: 0;
+    }
+    .perk-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Notice -->
+  <aside class="demo-badge-bar">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div>
+        <span class="demo-pill">WHOLESALE B2B DESK</span>
+        <span>Dedicated commercial enquiry workflow for boutiques and bulk textile buyers.</span>
+      </div>
+      <div>
+        <a href="admin.html" style="font-weight: 600; text-decoration: underline; color: var(--color-primary);">Admin Enquiries View &rarr;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="menu-toggle" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <a href="index.html" class="brand-logo" aria-label="SV TEXTILES Homepage">
+          <span class="logo-main">SV TEXTILES</span>
+          <span class="logo-sub">Quality &bull; Comfort &bull; Tradition</span>
+        </a>
+      </div>
+
+      <nav class="main-nav" role="navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+        <a href="shop.html" class="nav-link" data-i18n="nav.shopAll">Shop All</a>
+        <a href="shop.html?category=cotton-fabrics" class="nav-link" data-i18n="nav.cotton">Cotton</a>
+        <a href="shop.html?category=silk-fabrics" class="nav-link" data-i18n="nav.silk">Silk</a>
+        <a href="shop.html?category=sarees" class="nav-link" data-i18n="nav.sarees">Sarees</a>
+        <a href="wholesale.html" class="nav-link active" data-i18n="nav.wholesale">Wholesale</a>
+        <a href="about.html" class="nav-link" data-i18n="nav.aboutUs">About Us</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switcher" aria-label="Select Language" style="margin-right: 0.25rem;">
+          <button type="button" class="lang-btn active" data-lang="en" title="English">EN</button>
+          <span class="lang-divider">|</span>
+          <button type="button" class="lang-btn" data-lang="ta" title="தமிழ்">தமிழ்</button>
+        </div>
+
+        <button class="action-btn btn-search-trigger" title="Search Catalogue">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <a href="login.html" class="action-btn" title="Customer Account">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="cart.html" class="action-btn" title="Shopping Bag">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge-count header-cart-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="wholesale-hero">
+      <div class="container">
+        <span class="section-label" style="color: var(--color-gold);">Commercial Partnerships</span>
+        <h1 style="color: var(--color-white); font-size: 3rem; margin-bottom: 1rem;">Direct Mill &amp; Wholesale Supply</h1>
+        <p style="max-width: 650px; margin: 0 auto; color: var(--color-beige); font-size: 1.15rem;">
+          Specialized pricing tiers for fashion houses, independent designers, retail showrooms, and boutique curators.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-padding">
+      <div class="container">
+        <div class="wholesale-grid">
+          <!-- Enquiry Form Column -->
+          <div class="enquiry-card">
+            <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem; color: var(--color-primary);">Wholesale Requirement Form</h2>
+            <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 2rem;">
+              Fill in your specifications below. Our bulk desk evaluates requirements and returns an official quotation with freight estimates within 24 business hours.
+            </p>
+
+            <form id="wholesaleForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="wsBusinessName">Business / Boutique / Shop Name <span class="req">*</span></label>
+                  <input type="text" id="wsBusinessName" class="form-control" placeholder="e.g. Maya Designer Studio" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="wsContactPerson">Contact Person's Name <span class="req">*</span></label>
+                  <input type="text" id="wsContactPerson" class="form-control" placeholder="e.g. Ramesh Kumar" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="wsMobile">Mobile / WhatsApp Number <span class="req">*</span></label>
+                  <input type="tel" id="wsMobile" class="form-control" placeholder="10-digit number" maxlength="10" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="wsEmail">Business Email Address <span class="req">*</span></label>
+                  <input type="email" id="wsEmail" class="form-control" placeholder="contact@mayastudio.com" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="wsCategory">Primary Category of Interest <span class="req">*</span></label>
+                  <select id="wsCategory" class="form-control" required>
+                    <option value="">Select Category</option>
+                    <option value="Cotton Fabrics">Cotton Fabrics (Cambric / Mull / Slub)</option>
+                    <option value="Silk Fabrics">Silk Fabrics (Raw Silk / Katan / Tussar)</option>
+                    <option value="Sarees">Handloom Sarees (Bulk lots)</option>
+                    <option value="Dress Materials">Unstitched 3-Piece Sets</option>
+                    <option value="Kurtis & Ethnic Wear">Ready-to-Wear Kurtis</option>
+                    <option value="Bedsheets & Home">Home Textiles &amp; Bedsheets</option>
+                    <option value="Mixed Wholesale">Multiple / Mixed Categories</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="wsSellingUnit">Preferred Selling Unit <span class="req">*</span></label>
+                  <select id="wsSellingUnit" class="form-control" required>
+                    <option value="metres">By Metres (Running Fabric)</option>
+                    <option value="rolls">50m / 100m Continuous Rolls</option>
+                    <option value="bales">Master Mill Bales</option>
+                    <option value="sets">Sets (3-piece suits)</option>
+                    <option value="pieces">Pieces (Sarees / Garments)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="wsEstimatedQty">Estimated Quantity <span class="req">*</span></label>
+                  <input type="text" id="wsEstimatedQty" class="form-control" placeholder="e.g. 250 metres or 50 pieces" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="wsLocation">Delivery Destination (City &amp; State) <span class="req">*</span></label>
+                  <input type="text" id="wsLocation" class="form-control" placeholder="e.g. Surat, Gujarat" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="wsGstin">GSTIN Number (Optional)</label>
+                <input type="text" id="wsGstin" class="form-control" placeholder="15-character GSTIN for B2B Input Tax Credit" maxlength="15" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="wsNotes">Detailed Specifications &amp; Yarn/Count Preferences</label>
+                <textarea id="wsNotes" class="form-control" rows="3" placeholder="Provide weave specifications, expected delivery date, custom dyeing, or sampling requests..."></textarea>
+              </div>
+
+              <div style="background: var(--color-ivory); border-left: 3px solid var(--color-gold); padding: 0.85rem 1rem; font-size: 0.8rem; margin-bottom: 1.5rem; color: var(--color-muted);">
+                <strong>Notice:</strong> This is a wholesale enquiry for bulk pricing quotation. It does not constitute a finalized purchase obligation until samples and commercial terms are accepted by both parties.
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg btn-block" id="btnSubmitWholesale">
+                Submit Wholesale Enquiry &rarr;
+              </button>
+            </form>
+
+            <!-- Success Box -->
+            <div id="wsSuccessBox" style="display: none; padding: 2.5rem 1.5rem; text-align: center;">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-success-bg); color: var(--color-success); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem;">
+                ✓
+              </div>
+              <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--color-primary);">Enquiry Received Successfully!</h3>
+              <p style="color: var(--color-muted); margin-bottom: 1.5rem;" id="wsSuccessText"></p>
+              <div style="background: var(--color-ivory-soft); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem; max-width: 400px; margin: 0 auto 1.5rem;">
+                <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-muted);">Enquiry Reference:</span><br />
+                <strong style="font-size: 1.25rem; color: var(--color-primary);" id="wsRefDisplay">WSE-00000</strong>
+              </div>
+              <a href="shop.html" class="btn btn-secondary">Browse Retail Catalogue</a>
+            </div>
+          </div>
+
+          <!-- B2B Perks Column -->
+          <div class="b2b-perks-card">
+            <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem; color: var(--color-primary);">Why Source Bulk with SV Textiles?</h3>
+
+            <div class="perk-item">
+              <div class="perk-icon">📜</div>
+              <div>
+                <h4 style="font-size: 1.05rem; margin-bottom: 2px;">Direct Mill Quality</h4>
+                <p style="font-size: 0.85rem; color: var(--color-muted);">Accurate warp and weft counts with minimal shrinkage and high dye retention.</p>
+              </div>
+            </div>
+
+            <div class="perk-item">
+              <div class="perk-icon">✂️</div>
+              <div>
+                <h4 style="font-size: 1.05rem; margin-bottom: 2px;">Sample Swatches Available</h4>
+                <p style="font-size: 0.85rem; color: var(--color-muted);">Evaluate tactile handfeel and drape with couriered fabric swatch binders before placing master bales.</p>
+              </div>
+            </div>
+
+            <div class="perk-item">
+              <div class="perk-icon">🚚</div>
+              <div>
+                <h4 style="font-size: 1.05rem; margin-bottom: 2px;">Insured Surface Logistics</h4>
+                <p style="font-size: 0.85rem; color: var(--color-muted);">Bulk roll poly-packaging with door delivery across major textile hubs in India.</p>
+              </div>
+            </div>
+
+            <div class="perk-item">
+              <div class="perk-icon">📑</div>
+              <div>
+                <h4 style="font-size: 1.05rem; margin-bottom: 2px;">Proper B2B Tax Invoices</h4>
+                <p style="font-size: 0.85rem; color: var(--color-muted);">Formal GST tax invoices provided with every consignment to claim full Input Tax Credit (ITC).</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); text-align: center;">
+              <span style="font-size: 0.85rem; color: var(--color-muted); display: block; margin-bottom: 0.5rem;">Urgent Wholesale Requirement?</span>
+              <a href="https://wa.me/919000000000?text=Hello%20SV%20Textiles%2C%20I%20have%20an%20urgent%20wholesale%20fabric%20enquiry." class="btn btn-outline-gold btn-block" target="_blank" rel="noopener noreferrer">
+                Chat Directly on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 SV TEXTILES. Quality &bull; Comfort &bull; Tradition.</div>
+      <div class="footer-bottom-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Catalogue</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/products-data.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('wholesaleForm');
+      const successBox = document.getElementById('wsSuccessBox');
+      const refDisplay = document.getElementById('wsRefDisplay');
+      const successText = document.getElementById('wsSuccessText');
+
+      form.onsubmit = (e) => {
+        e.preventDefault();
+
+        const businessName = document.getElementById('wsBusinessName').value.trim();
+        const contactPerson = document.getElementById('wsContactPerson').value.trim();
+        const mobile = document.getElementById('wsMobile').value.trim();
+        const email = document.getElementById('wsEmail').value.trim();
+        const category = document.getElementById('wsCategory').value;
+        const unit = document.getElementById('wsSellingUnit').value;
+        const qty = document.getElementById('wsEstimatedQty').value.trim();
+        const location = document.getElementById('wsLocation').value.trim();
+        const gstin = document.getElementById('wsGstin').value.trim();
+        const notes = document.getElementById('wsNotes').value.trim();
+
+        if (!businessName || !contactPerson || !mobile || !email || !category || !unit || !qty || !location) {
+          alert('Please complete all required fields indicated with a red asterisk.');
+          return;
+        }
+
+        const enquiryPayload = {
+          businessName,
+          contactPerson,
+          mobile,
+          email,
+          category,
+          unit,
+          estimatedQty: qty,
+          location,
+          gstin,
+          notes
+        };
+
+        const res = window.SVTStore.submitWholesaleEnquiry(enquiryPayload);
+
+        if (res.success) {
+          form.style.display = 'none';
+          refDisplay.textContent = res.referenceNo;
+          successText.textContent = `Thank you, ${contactPerson}. Your wholesale quotation request for ${businessName} has been logged. Our commercial sales executive will reach out to ${email} and +91 ${mobile}.`;
+          successBox.style.display = 'block';
+          successBox.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+    });
+  </script>
+</body>
+</html>

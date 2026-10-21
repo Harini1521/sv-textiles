@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SV TEXTILES — Quality. Comfort. Tradition. Discover timeless handloom sarees, pure cotton yardage, mulberry silk fabrics, dress materials, and wholesale collections." />
+  <title>SV TEXTILES — Premium Textile E-Commerce | Quality. Comfort. Tradition.</title>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>" />
+</head>
+<body>
+
+  <!-- Demo Mode Banner -->
+  <aside class="demo-badge-bar" id="demoModeNotice" aria-label="System status">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div>
+        <span class="demo-pill">DEMO MODE ACTIVE</span>
+        <span style="margin-left: 0.5rem;">Sample catalogue &amp; offline local storage engine enabled. (No real payments processed).</span>
+      </div>
+      <div>
+        <a href="admin.html" style="font-weight: 600; text-decoration: underline; color: var(--color-primary);">Admin Portal &rarr;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Announcement Bar -->
+  <section class="announcement-bar" aria-label="Promotions and notices">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div class="announcement-content">
+        <span class="announcement-badge">Heritage Release</span>
+        <span data-i18n="announcement.text">Festive Handloom Sarees &amp; Pure Silk Yardage Now Available &bull; Complimentary Standard Delivery on Orders Above ₹1,999 across India</span>
+      </div>
+      <div class="announcement-tools">
+        <div class="lang-switcher" aria-label="Select Language">
+          <button type="button" class="lang-btn active" data-lang="en" title="English">EN</button>
+          <span class="lang-divider">|</span>
+          <button type="button" class="lang-btn" data-lang="ta" title="தமிழ்">தமிழ்</button>
+        </div>
+        <span>|</span>
+        <a href="wholesale.html" data-i18n="announcement.b2b">B2B Wholesale Enquiries</a>
+        <span>|</span>
+        <a href="contact.html" data-i18n="announcement.care">Customer Care</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="menu-toggle" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+
+        <a href="index.html" class="brand-logo" aria-label="SV TEXTILES Homepage">
+          <span class="logo-main">SV TEXTILES</span>
+          <span class="logo-sub" data-i18n="brand.tagline">Quality &bull; Comfort &bull; Tradition</span>
+        </a>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active" data-i18n="nav.home">Home</a>
+        <a href="shop.html" class="nav-link" data-i18n="nav.shopAll">Shop All</a>
+        <a href="shop.html?category=cotton-fabrics" class="nav-link" data-i18n="nav.cotton">Cotton</a>
+        <a href="shop.html?category=silk-fabrics" class="nav-link" data-i18n="nav.silk">Silk</a>
+        <a href="shop.html?category=sarees" class="nav-link" data-i18n="nav.sarees">Sarees</a>
+        <a href="shop.html?filter=new" class="nav-link highlight" data-i18n="nav.newArrivals">New Arrivals</a>
+        <a href="wholesale.html" class="nav-link" data-i18n="nav.wholesale">Wholesale</a>
+        <a href="about.html" class="nav-link" data-i18n="nav.aboutUs">About Us</a>
+        <a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <!-- Action Icons -->
+      <div class="header-actions">
+        <button class="action-btn btn-search-trigger" title="Search Catalogue" aria-label="Search Catalogue">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+
+        <a href="login.html" class="action-btn" title="Customer Account" aria-label="Customer Account">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+
+        <a href="wishlist.html" class="action-btn" title="Wishlist" aria-label="Wishlist">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="badge-count header-wishlist-count" style="display: none;">0</span>
+        </a>
+
+        <a href="cart.html" class="action-btn" title="Shopping Bag" aria-label="Shopping Bag">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge-count header-cart-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop">
+    <div class="mobile-nav-drawer">
+      <div class="mobile-nav-header">
+        <div class="brand-logo">
+          <span class="logo-main" style="font-size: 1.4rem;">SV TEXTILES</span>
+          <span class="logo-sub" data-i18n="brand.tagline">Quality &bull; Comfort &bull; Tradition</span>
+        </div>
+        <button class="modal-close-btn" id="btnCloseMobileNav" aria-label="Close Mobile Menu">&times;</button>
+      </div>
+
+      <div class="mobile-nav-body">
+        <nav class="mobile-nav-links">
+          <div style="padding: 0.5rem 0 1rem 0; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 0.85rem; color: var(--color-muted); font-weight: 600;">Language / மொழி:</span>
+            <div class="lang-switcher" aria-label="Select Language">
+              <button type="button" class="lang-btn active" data-lang="en" title="English">EN</button>
+              <span class="lang-divider">|</span>
+              <button type="button" class="lang-btn" data-lang="ta" title="தமிழ்">தமிழ்</button>
+            </div>
+          </div>
+          <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+          <a href="shop.html" data-i18n="nav.shopAll">Shop Complete Catalogue</a>
+          <a href="shop.html?category=cotton-fabrics" data-i18n="cat.cotton-fabrics">Cotton Fabrics</a>
+          <a href="shop.html?category=silk-fabrics" data-i18n="cat.silk-fabrics">Silk Fabrics</a>
+          <a href="shop.html?category=sarees" data-i18n="cat.sarees">Sarees &amp; Drapes</a>
+          <a href="shop.html?category=dress-materials" data-i18n="cat.dress-materials">Dress Materials</a>
+          <a href="shop.html?category=kurtis-ethnic-wear" data-i18n="cat.kurtis-ethnic-wear">Kurtis &amp; Ethnic Wear</a>
+          <a href="shop.html?category=readymade-garments" data-i18n="cat.readymade-garments">Readymade Garments</a>
+          <a href="shop.html?category=bedsheets-home-textiles" data-i18n="cat.bedsheets-home-textiles">Bedsheets &amp; Home</a>
+          <a href="wholesale.html" data-i18n="nav.wholesale">Wholesale &amp; Bulk Orders</a>
+          <a href="wishlist.html" data-i18n="nav.wishlist">My Wishlist</a>
+          <a href="cart.html" data-i18n="nav.cart">Shopping Bag</a>
+          <a href="login.html" data-i18n="nav.account">Sign In / Register</a>
+          <a href="admin.html" data-i18n="nav.admin" style="color: var(--color-gold);">Admin Dashboard</a>
+          <a href="about.html" data-i18n="nav.aboutUs">About SV Textiles</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+        </nav>
+      </div>
+
+      <div class="mobile-nav-footer">
+        <p style="color: var(--color-muted); font-size: 0.8rem;">
+          Wholesale &amp; Retail Support<br />
+          Email: <span style="color: var(--color-primary); font-weight: 600;">care@svtextiles.com</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <main id="mainContent">
+    <!-- Hero Section -->
+    <section class="hero-section" aria-label="Hero Introduction">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-subtitle" data-i18n="hero.subtitle">Indian Textile Heritage</span>
+          <h1 class="hero-title" data-i18n="hero.title">
+            Weaving Quality Into Every Thread
+          </h1>
+          <p class="hero-desc" data-i18n="hero.desc">
+            Discover timeless textiles, beautiful fabrics, and everyday essentials crafted for every occasion. From artisanal handblock cambric to regal Kanjivaram silks, explore unmatched craftsmanship.
+          </p>
+          <div class="hero-cta">
+            <a href="shop.html" class="btn btn-gold btn-lg" data-i18n="hero.btn_explore">Explore Collections</a>
+            <a href="shop.html?filter=bestseller" class="btn btn-light btn-lg" data-i18n="hero.btn_bestsellers">Shop Bestsellers</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop By Category Section -->
+    <section class="section-padding" aria-labelledby="catHeading">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label" data-i18n="cat.section_label">Curated Collections</span>
+          <h2 class="section-title" id="catHeading" data-i18n="cat.title">Shop by Category</h2>
+          <p class="section-subtitle" data-i18n="cat.subtitle">
+            Explore pure natural fibres, heritage weaves, and ready garments tailored to celebrate Indian craftsmanship.
+          </p>
+        </div>
+
+        <div class="categories-grid" id="categoryCardsContainer">
+          <!-- Dynamically populated or static cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products Tabs -->
+    <section class="section-padding" style="background-color: var(--color-ivory-soft); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);" aria-labelledby="featuredHeading">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label" data-i18n="feat.section_label">Selected Works</span>
+          <h2 class="section-title" id="featuredHeading" data-i18n="feat.title">Featured Textiles &amp; Garments</h2>
+          <p class="section-subtitle" data-i18n="feat.subtitle">
+            Authentic weaves and premium garments carefully inspected for texture, drape, and yarn purity.
+          </p>
+        </div>
+
+        <div class="tabs-header" role="tablist">
+          <button class="tab-btn active" data-tab="all" role="tab" data-i18n="feat.tab_all">All Highlights</button>
+          <button class="tab-btn" data-tab="new" role="tab" data-i18n="feat.tab_new">New Arrivals</button>
+          <button class="tab-btn" data-tab="bestseller" role="tab" data-i18n="feat.tab_bestseller">Bestsellers</button>
+          <button class="tab-btn" data-tab="featured" role="tab" data-i18n="feat.tab_featured">Editor's Choice</button>
+        </div>
+
+        <div class="products-grid" id="featuredProductsGrid">
+          <!-- Rendered via JS -->
+        </div>
+
+        <div class="text-center" style="margin-top: 3rem;">
+          <a href="shop.html" class="btn btn-primary btn-lg" data-i18n="feat.view_all">View Entire Catalogue &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Story Editorial -->
+    <section class="section-padding brand-story-section" aria-labelledby="storyHeading">
+      <div class="container">
+        <div class="story-grid">
+          <div class="story-image-wrap">
+            <div class="story-frame"></div>
+            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=800&q=80" alt="Weaving fabric on traditional handloom" loading="lazy" />
+          </div>
+
+          <div class="story-content">
+            <span class="section-label" data-i18n="story.section_label">Authentic Craftsmanship</span>
+            <h2 class="section-title" id="storyHeading" style="font-size: 2.5rem;" data-i18n="story.title">Tradition Woven Into Modern Living</h2>
+            <p>
+              SV TEXTILES is dedicated to bridging the timeless legacy of Indian handloom weaving with the demands of contemporary fashion and living. We bring together pure cottons, raw mulberry silks, authentic Chanderis, and carefully finished ethnic wear that honour craft, comfort, and longevity.
+            </p>
+            <p>
+              Whether you are an individual searching for a festive saree, a designer sourcing unstitched cambric fabrics by the metre, or a boutique curator requiring wholesale lots, our catalogue is structured to offer transparent selling units, honest pricing, and reliable quality.
+            </p>
+            <div style="display: flex; gap: 2rem; margin-top: 1.5rem;">
+              <div>
+                <h4 style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 2px;">100%</h4>
+                <span style="font-size: 0.85rem; color: var(--color-muted);">Natural Fibres Priority</span>
+              </div>
+              <div style="border-left: 1px solid var(--color-border); padding-left: 2rem;">
+                <h4 style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 2px;">8+</h4>
+                <span style="font-size: 0.85rem; color: var(--color-muted);">Curated Categories</span>
+              </div>
+              <div style="border-left: 1px solid var(--color-border); padding-left: 2rem;">
+                <h4 style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 2px;">PAN-India</h4>
+                <span style="font-size: 0.85rem; color: var(--color-muted);">Courier Coverage</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose SV Textiles -->
+    <section class="section-padding" aria-labelledby="whyHeading">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label" data-i18n="why.section_label">The SV Standard</span>
+          <h2 class="section-title" id="whyHeading" data-i18n="why.title">Why Choose SV TEXTILES?</h2>
+          <p class="section-subtitle" data-i18n="why.subtitle">
+            Reliable specifications, dependable fabrics, and customer-first service.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🧵</div>
+            <h4>Diverse Textile Collections</h4>
+            <p>From 60s cambric cotton yardage and handloom silks to 3-piece suit sets and 300TC bedsheets.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h4>Product Quality Information</h4>
+            <p>Accurate fabric count, width dimensions, clear composition descriptions, and genuine washing instructions.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h4>Easy Online Ordering</h4>
+            <p>Seamless bag management, transparent selling units (metre, piece, set, pack), and real-time stock alerts.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h4>Direct WhatsApp Support</h4>
+            <p>Connect with our fabric desk directly for styling advice, order tracking, and bespoke bulk enquiries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wholesale Section -->
+    <section class="wholesale-banner" aria-label="Wholesale and Bulk Supply">
+      <div class="container">
+        <span class="section-label" style="color: var(--color-gold);" data-i18n="wholesale.label">Commercial &amp; Boutique Buyers</span>
+        <h2 data-i18n="wholesale.title">Looking for Textiles in Bulk?</h2>
+        <p data-i18n="wholesale.desc">
+          We cater to fashion designers, garment manufacturers, boutique owners, and retail textile shops across India with tiered wholesale pricing, mill-packaged rolls, and dedicated delivery logistics.
+        </p>
+        <a href="wholesale.html" class="btn btn-gold btn-lg" data-i18n="wholesale.btn">Submit Wholesale Enquiry &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <span class="logo-main">SV TEXTILES</span>
+          <span class="logo-sub" data-i18n="brand.tagline">Quality &bull; Comfort &bull; Tradition</span>
+        </div>
+        <p data-i18n="footer.desc">
+          A premier Indian textile destination offering pure cotton yardage, mulberry silk drapes, handcrafted sarees, and bulk textile solutions.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-btn" aria-label="Instagram" title="Instagram">IG</a>
+          <a href="#" class="social-btn" aria-label="Facebook" title="Facebook">FB</a>
+          <a href="#" class="social-btn" aria-label="Pinterest" title="Pinterest">PIN</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5 data-i18n="footer.quick_links">Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="shop.html" data-i18n="nav.shopAll">Shop All Textiles</a></li>
+          <li><a href="shop.html?filter=new" data-i18n="nav.newArrivals">New Arrivals</a></li>
+          <li><a href="wholesale.html" data-i18n="nav.wholesale">Wholesale B2B</a></li>
+          <li><a href="wishlist.html" data-i18n="nav.wishlist">My Wishlist</a></li>
+          <li><a href="account.html" data-i18n="nav.account">My Account</a></li>
+          <li><a href="admin.html" data-i18n="nav.admin">Admin Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5 data-i18n="footer.categories">Categories</h5>
+        <ul class="footer-links">
+          <li><a href="shop.html?category=cotton-fabrics" data-i18n="cat.cotton-fabrics">Cotton Fabrics</a></li>
+          <li><a href="shop.html?category=silk-fabrics" data-i18n="cat.silk-fabrics">Silk Fabrics</a></li>
+          <li><a href="shop.html?category=sarees" data-i18n="cat.sarees">Heritage Sarees</a></li>
+          <li><a href="shop.html?category=dress-materials" data-i18n="cat.dress-materials">Dress Materials</a></li>
+          <li><a href="shop.html?category=kurtis-ethnic-wear" data-i18n="cat.kurtis-ethnic-wear">Kurtis &amp; Tunics</a></li>
+          <li><a href="shop.html?category=bedsheets-home-textiles" data-i18n="cat.bedsheets-home-textiles">Home Textiles</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5 data-i18n="footer.contact_desk">Contact Desk</h5>
+        <ul class="footer-contact">
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>SV Textiles Commercial Hub, Textile Market Road, Erode / Surat / Chennai, India</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+91 90000 00000 (WhatsApp / Call)</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>care@svtextiles.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        &copy; 2026 SV TEXTILES. <span data-i18n="footer.rights">All rights reserved. Quality • Comfort • Tradition.</span>
+      </div>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="shipping-returns.html">Shipping &amp; Returns</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Widget -->
+  <a href="https://wa.me/919000000000" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" title="Chat with SV Textiles on WhatsApp">
+    <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <span>Chat with Fabric Desk</span>
+  </a>
+
+  <!-- JavaScript Files -->
+  <script src="js/i18n.js"></script>
+  <script src="js/products-data.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize Homepage Content
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentActiveTab = 'all';
+
+      // 1. Render Categories
+      const catContainer = document.getElementById('categoryCardsContainer');
+      function renderHomeCategories() {
+        if (!catContainer || typeof SVT_CATEGORIES === 'undefined') return;
+        const t = (k) => (window.SVTI18n ? window.SVTI18n.t(k) : k);
+        catContainer.innerHTML = SVT_CATEGORIES.map(cat => {
+          const localizedName = t(`cat.${cat.slug}`) || cat.name;
+          const exploreText = t('cat.explore') || 'Explore Collection &rarr;';
+          return `
+            <a href="shop.html?category=${cat.slug}" class="category-card" aria-label="Shop ${localizedName}">
+              <img src="${cat.image}" alt="${localizedName}" loading="lazy" />
+              <div class="category-info">
+                <h3 class="category-name">${localizedName}</h3>
+                <span class="category-link">${exploreText}</span>
+              </div>
+            </a>
+          `;
+        }).join('');
+      }
+
+      // 2. Render Featured Products Tabs
+      const grid = document.getElementById('featuredProductsGrid');
+      const products = window.SVTStore ? window.SVTStore.getAllProducts() : [];
+
+      function renderFilteredProducts(filterType) {
+        if (!grid) return;
+        let list = products;
+        if (filterType === 'new') {
+          list = products.filter(p => p.isNew);
+        } else if (filterType === 'bestseller') {
+          list = products.filter(p => p.isBestseller);
+        } else if (filterType === 'featured') {
+          list = products.filter(p => p.isFeatured);
+        }
+
+        if (list.length === 0) list = products.slice(0, 4);
+        grid.innerHTML = list.slice(0, 8).map(p => window.renderProductCardHTML(p)).join('');
+      }
+
+      renderHomeCategories();
+      renderFilteredProducts('all');
+
+      const tabs = document.querySelectorAll('.tab-btn');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          currentActiveTab = tab.getAttribute('data-tab');
+          renderFilteredProducts(currentActiveTab);
+        });
+      });
+
+      // Reactive update when language is changed
+      window.addEventListener('svt_lang_change', () => {
+        renderHomeCategories();
+        renderFilteredProducts(currentActiveTab);
+      });
+    });
+  </script>
+</body>
+</html>

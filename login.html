@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sign In or Register with SV TEXTILES to view your order history and saved delivery addresses." />
+  <title>Customer Login &amp; Registration — SV TEXTILES</title>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>" />
+  <style>
+    .auth-container {
+      max-width: 480px;
+      margin: 2rem auto;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .auth-tabs {
+      display: flex;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 2rem;
+    }
+    .auth-tab-btn {
+      flex: 1;
+      text-align: center;
+      padding: 0.75rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--color-muted);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+    .auth-tab-btn.active {
+      color: var(--color-primary);
+      border-color: var(--color-gold);
+    }
+    .auth-form-panel {
+      display: none;
+    }
+    .auth-form-panel.active {
+      display: block;
+    }
+    .demo-login-box {
+      margin-top: 2rem;
+      padding: 1.25rem;
+      background: var(--color-ivory-soft);
+      border: 1px dashed var(--color-border);
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Notice -->
+  <aside class="demo-badge-bar">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div>
+        <span class="demo-pill">FIREBASE AUTH / DEMO ENGINE</span>
+        <span>Use instant demo credentials below to evaluate customer features.</span>
+      </div>
+      <div>
+        <a href="index.html" style="font-weight: 600; text-decoration: underline; color: var(--color-primary);">&larr; Return to Home</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner" style="justify-content: space-between;">
+      <a href="index.html" class="brand-logo" style="align-items: center;">
+        <span class="logo-main">SV TEXTILES</span>
+        <span class="logo-sub" data-i18n="brand.tagline">Quality &bull; Comfort &bull; Tradition</span>
+      </a>
+      <div class="lang-switcher" aria-label="Select Language">
+        <button type="button" class="lang-btn active" data-lang="en" title="English">EN</button>
+        <span class="lang-divider">|</span>
+        <button type="button" class="lang-btn" data-lang="ta" title="தமிழ்">தமிழ்</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section-padding">
+    <div class="container">
+      <div class="auth-container">
+        <!-- Tab Headers -->
+        <div class="auth-tabs" role="tablist">
+          <button class="auth-tab-btn active" id="tabBtnLogin">Sign In</button>
+          <button class="auth-tab-btn" id="tabBtnRegister">Create Account</button>
+        </div>
+
+        <!-- Login Form Panel -->
+        <div class="auth-form-panel active" id="panelLogin">
+          <form id="loginForm" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="loginEmail">Email Address</label>
+              <input type="email" id="loginEmail" class="form-control" placeholder="user@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <label class="form-label" for="loginPassword">Password</label>
+                <a href="#" id="btnForgotPassword" style="font-size: 0.78rem; color: var(--color-gold-hover); text-decoration: underline;">Forgot Password?</a>
+              </div>
+              <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1rem;">
+              Sign In to Account
+            </button>
+            <div id="loginFeedback" style="font-size: 0.85rem; color: var(--color-danger); margin-top: 0.75rem; text-align: center; display: none;"></div>
+          </form>
+        </div>
+
+        <!-- Registration Form Panel -->
+        <div class="auth-form-panel" id="panelRegister">
+          <form id="registerForm" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="regName">Full Name</label>
+              <input type="text" id="regName" class="form-control" placeholder="e.g. Radhika Menon" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regEmail">Email Address</label>
+              <input type="email" id="regEmail" class="form-control" placeholder="radhika@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regPassword">Password (Minimum 6 characters)</label>
+              <input type="password" id="regPassword" class="form-control" placeholder="••••••••" minlength="6" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1rem;">
+              Register Customer Account
+            </button>
+            <div id="registerFeedback" style="font-size: 0.85rem; color: var(--color-danger); margin-top: 0.75rem; text-align: center; display: none;"></div>
+          </form>
+        </div>
+
+        <!-- Quick Demo Evaluation Logins -->
+        <div class="demo-login-box">
+          <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); margin-bottom: 0.5rem; font-weight: 700;">
+            Reviewer Quick Testing
+          </div>
+          <button type="button" class="btn btn-sm btn-secondary btn-block" id="btnInstantDemoLogin" style="margin-bottom: 0.5rem;">
+            ⚡ One-Click Customer Login (customer@svtextiles.com)
+          </button>
+          <a href="admin.html" class="btn btn-sm btn-outline-gold btn-block">
+            🛡️ Go to Admin Portal
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 SV TEXTILES. Quality &bull; Comfort &bull; Tradition.</div>
+      <div class="footer-bottom-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Catalogue</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/products-data.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabLogin = document.getElementById('tabBtnLogin');
+      const tabRegister = document.getElementById('tabBtnRegister');
+      const panelLogin = document.getElementById('panelLogin');
+      const panelRegister = document.getElementById('panelRegister');
+
+      tabLogin.onclick = () => {
+        tabLogin.classList.add('active');
+        tabRegister.classList.remove('active');
+        panelLogin.classList.add('active');
+        panelRegister.classList.remove('active');
+      };
+
+      tabRegister.onclick = () => {
+        tabRegister.classList.add('active');
+        tabLogin.classList.remove('active');
+        panelRegister.classList.add('active');
+        panelLogin.classList.remove('active');
+      };
+
+      // Handle Sign In
+      document.getElementById('loginForm').onsubmit = (e) => {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value.trim();
+        const pass = document.getElementById('loginPassword').value.trim();
+        const feedback = document.getElementById('loginFeedback');
+
+        if (!email || !pass) {
+          feedback.textContent = 'Please enter both email and password.';
+          feedback.style.display = 'block';
+          return;
+        }
+
+        const res = window.SVTStore.loginCustomer(email, pass);
+        if (res.success) {
+          window.location.href = 'account.html';
+        }
+      };
+
+      // Handle Register
+      document.getElementById('registerForm').onsubmit = (e) => {
+        e.preventDefault();
+        const name = document.getElementById('regName').value.trim();
+        const email = document.getElementById('regEmail').value.trim();
+        const pass = document.getElementById('regPassword').value.trim();
+        const feedback = document.getElementById('registerFeedback');
+
+        if (!name || !email || !pass || pass.length < 6) {
+          feedback.textContent = 'Please fill all fields. Password must be at least 6 characters.';
+          feedback.style.display = 'block';
+          return;
+        }
+
+        const res = window.SVTStore.loginCustomer(email, pass);
+        if (res.success) {
+          res.user.displayName = name;
+          window.SVTStore.setCurrentUser(res.user);
+          window.location.href = 'account.html';
+        }
+      };
+
+      // Quick Demo Button
+      document.getElementById('btnInstantDemoLogin').onclick = () => {
+        window.SVTStore.loginCustomer('customer@svtextiles.com', 'demo123');
+        window.location.href = 'account.html';
+      };
+
+      // Forgot Password Notice
+      document.getElementById('btnForgotPassword').onclick = (e) => {
+        e.preventDefault();
+        alert('Password Reset Notice: In production, Firebase Authentication sends a secure password reset link to your email address.');
+      };
+    });
+  </script>
+</body>
+</html>

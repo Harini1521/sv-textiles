@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Saved Weaves & Favorites — SV TEXTILES Wishlist." />
+  <title>Saved Wishlist — SV TEXTILES</title>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>" />
+</head>
+<body>
+
+  <!-- Demo Notice -->
+  <aside class="demo-badge-bar">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div>
+        <span class="demo-pill">SAVED WISHLIST</span>
+        <span>Persisted locally in your browser storage.</span>
+      </div>
+      <div>
+        <a href="shop.html" style="font-weight: 600; text-decoration: underline; color: var(--color-primary);">&larr; Return to Catalogue</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="menu-toggle" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <a href="index.html" class="brand-logo" aria-label="SV TEXTILES Homepage">
+          <span class="logo-main">SV TEXTILES</span>
+          <span class="logo-sub" data-i18n="brand.tagline">Quality &bull; Comfort &bull; Tradition</span>
+        </a>
+      </div>
+
+      <nav class="main-nav" role="navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+        <a href="shop.html" class="nav-link" data-i18n="nav.shopAll">Shop All</a>
+        <a href="wholesale.html" class="nav-link" data-i18n="nav.wholesale">Wholesale</a>
+        <a href="wishlist.html" class="nav-link active" data-i18n="nav.wishlist">Wishlist</a>
+        <a href="about.html" class="nav-link" data-i18n="nav.aboutUs">About Us</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switcher" aria-label="Select Language" style="margin-right: 0.25rem;">
+          <button type="button" class="lang-btn active" data-lang="en" title="English">EN</button>
+          <span class="lang-divider">|</span>
+          <button type="button" class="lang-btn" data-lang="ta" title="தமிழ்">தமிழ்</button>
+        </div>
+
+        <button class="action-btn btn-search-trigger" title="Search Catalogue" aria-label="Search Catalogue">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <a href="login.html" class="action-btn" title="Customer Account" aria-label="Customer Account">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="wishlist.html" class="action-btn" title="Wishlist" aria-label="Wishlist">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="badge-count header-wishlist-count" style="display: none;">0</span>
+        </a>
+        <a href="cart.html" class="action-btn" title="Shopping Bag" aria-label="Shopping Bag">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge-count header-cart-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop">
+    <div class="mobile-nav-drawer">
+      <div class="mobile-nav-header">
+        <div class="brand-logo">
+          <span class="logo-main" style="font-size: 1.4rem;">SV TEXTILES</span>
+          <span class="logo-sub" data-i18n="brand.tagline">Quality &bull; Comfort &bull; Tradition</span>
+        </div>
+        <button class="modal-close-btn" id="btnCloseMobileNav">&times;</button>
+      </div>
+      <div class="mobile-nav-body">
+        <nav class="mobile-nav-links">
+          <div style="padding: 0.5rem 0 1rem 0; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 0.85rem; color: var(--color-muted); font-weight: 600;">Language / மொழி:</span>
+            <div class="lang-switcher" aria-label="Select Language">
+              <button type="button" class="lang-btn active" data-lang="en" title="English">EN</button>
+              <span class="lang-divider">|</span>
+              <button type="button" class="lang-btn" data-lang="ta" title="தமிழ்">தமிழ்</button>
+            </div>
+          </div>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="shop.html" data-i18n="nav.shopAll">Shop Catalogue</a>
+          <a href="wholesale.html" data-i18n="nav.wholesale">Wholesale Lots</a>
+          <a href="cart.html" data-i18n="nav.cart">Shopping Bag</a>
+          <a href="wishlist.html" class="active" data-i18n="nav.wishlist">Wishlist</a>
+          <a href="admin.html" data-i18n="nav.admin">Admin Dashboard</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <main class="section-padding">
+    <div class="container">
+      <div style="margin-bottom: 2.5rem; text-align: center;">
+        <span class="section-label">Saved Favorites</span>
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;" data-i18n="nav.wishlist">Your Textile Wishlist</h1>
+        <p style="color: var(--color-muted);">Items you have bookmarked for current or upcoming projects and festivities.</p>
+      </div>
+
+      <div class="products-grid" id="wishlistProductsGrid"></div>
+
+      <!-- Empty Wishlist -->
+      <div id="wishlistEmptyState" style="display: none; text-align: center; padding: 4rem 2rem; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🤍</div>
+        <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Your Wishlist is Empty</h3>
+        <p style="color: var(--color-muted); max-width: 450px; margin: 0 auto 2rem;">
+          Save sarees, handblock prints, and silks to review or purchase at your convenience.
+        </p>
+        <a href="shop.html" class="btn btn-primary btn-lg" data-i18n="hero.btn_explore">Explore Catalogue &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 SV TEXTILES. <span data-i18n="footer.rights">All rights reserved. Quality • Comfort • Tradition.</span></div>
+      <div class="footer-bottom-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="shop.html" data-i18n="nav.shopAll">Catalogue</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/products-data.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('wishlistProductsGrid');
+      const empty = document.getElementById('wishlistEmptyState');
+
+      function renderWishlist() {
+        if (!window.SVTStore) return;
+        const wishlistIds = window.SVTStore.getWishlist();
+        const allProducts = window.SVTStore.getAllProducts();
+        const savedProducts = allProducts.filter(p => wishlistIds.includes(p.id));
+
+        if (savedProducts.length === 0) {
+          if (grid) grid.style.display = 'none';
+          if (empty) empty.style.display = 'block';
+        } else {
+          if (grid) {
+            grid.style.display = 'grid';
+            grid.innerHTML = savedProducts.map(p => window.renderProductCardHTML(p)).join('');
+          }
+          if (empty) empty.style.display = 'none';
+        }
+      }
+
+      renderWishlist();
+
+      window.addEventListener('svt_store_update', (e) => {
+        if (e.detail && e.detail.type === 'wishlist') {
+          renderWishlist();
+        }
+      });
+
+      // Reactive re-render on language toggle
+      window.addEventListener('svt_lang_change', () => {
+        renderWishlist();
+      });
+    });
+  </script>
+</body>
+</html>
