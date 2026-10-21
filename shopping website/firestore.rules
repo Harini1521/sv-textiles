@@ -1,0 +1,50 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to check if caller is an authorized admin
+    function isAdmin() {
+      return request.auth != null && 
+        (request.auth.token.admin == true || request.auth.token.email.matches('.*@svtextiles[.]com'));
+    }
+    
+    // Helper function to check if caller is authenticated user
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if customer owns this document
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // 1. Master Products Catalogue
+    // Public can read; only authorized admins can create, update, or delete
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    // 2. Customer Orders
+    // Customers can create orders and read their own orders; only admins can list all or update statuses
+    match /orders/{orderId} {
+      allow create: if true; // Allows guest checkout or authenticated customer order placement
+      allow read: if isAdmin() || (isAuthenticated() && resource.data.customer.uid == request.auth.uid);
+      allow update: if isAdmin(); // Only admins can update order status (Shipped, Delivered, etc.)
+      allow delete: if isAdmin();
+    }
+    
+    // 3. Wholesale Enquiries
+    // Anyone can submit a wholesale lead; only authorized admins can read or manage
+    match /wholesale_enquiries/{enquiryId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+    
+    // 4. Customer Profiles
+    // Customers can read and update their own saved addresses
+    match /customers/{userId} {
+      allow read, write: if isOwner(userId) || isAdmin();
+    }
+  }
+}

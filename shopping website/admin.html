@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SV TEXTILES — Protected Administrator Portal" />
+  <title>Admin Dashboard &amp; Inventory Management — SV TEXTILES</title>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+  <style>
+    .admin-gate-wrap {
+      max-width: 440px;
+      margin: 4rem auto;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    .admin-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: calc(100vh - 84px);
+    }
+    .admin-sidebar {
+      background: var(--color-primary-dark);
+      color: var(--color-beige);
+      padding: 2rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .admin-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      color: var(--color-beige);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.35rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .admin-nav-item:hover,
+    .admin-nav-item.active {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--color-gold);
+    }
+    .admin-main {
+      padding: 2.5rem;
+      background: #F8F6F0;
+      overflow-y: auto;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .metric-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .metric-val {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 0.35rem 0;
+    }
+    .admin-table-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2rem;
+    }
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .admin-table th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 2px solid var(--color-border);
+      color: var(--color-muted);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+    }
+    .admin-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--color-border-light);
+      vertical-align: middle;
+    }
+    .status-select {
+      padding: 0.3rem 0.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      background: var(--color-white);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Notice -->
+  <aside class="demo-badge-bar">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div>
+        <span class="demo-pill">ADMIN SECURITY PORTAL</span>
+        <span>Manage catalogue inventory, live customer orders, and wholesale buyer leads.</span>
+      </div>
+      <div>
+        <a href="index.html" style="font-weight: 600; text-decoration: underline; color: var(--color-primary);">&larr; Storefront</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Login Gate Screen -->
+  <div id="adminGateScreen">
+    <div class="admin-gate-wrap">
+      <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🛡️</div>
+      <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Admin Authentication</h2>
+      <p style="color: var(--color-muted); font-size: 0.88rem; margin-bottom: 1.75rem;">
+        Protected portal. Enforced by session tokens and Firebase Security Rules.
+      </p>
+
+      <form id="adminPassForm">
+        <div class="form-group" style="text-align: left;">
+          <label class="form-label" for="adminPassInput">Admin Passcode</label>
+          <input type="password" id="adminPassInput" class="form-control" placeholder="Enter admin passcode" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Authorize &amp; Enter Dashboard</button>
+      </form>
+
+      <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--color-border); font-size: 0.82rem;">
+        <span style="color: var(--color-muted);">Demo Evaluation Passcode:</span>
+        <code style="background: var(--color-ivory); padding: 2px 6px; font-weight: bold;">svtadmin2026</code>
+        <button type="button" class="btn btn-sm btn-outline-gold btn-block" id="btnQuickDemoAdmin" style="margin-top: 0.75rem;">
+          ⚡ Auto-Authenticate as Demo Admin
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Authenticated Admin Portal -->
+  <div id="adminPortal" style="display: none;">
+    <div class="admin-layout">
+      <!-- Admin Sidebar -->
+      <aside class="admin-sidebar">
+        <div class="brand-logo" style="margin-bottom: 2.5rem;">
+          <span class="logo-main" style="color: var(--color-white); font-size: 1.5rem;">SV TEXTILES</span>
+          <span class="logo-sub">Operations &bull; Management</span>
+        </div>
+
+        <nav style="display: flex; flex-direction: column; gap: 0.25rem; flex: 1;">
+          <div class="admin-nav-item active" data-view="dashboard">📊 Dashboard Overview</div>
+          <div class="admin-nav-item" data-view="products">🧵 Product Catalogue</div>
+          <div class="admin-nav-item" data-view="orders">📦 Customer Orders</div>
+          <div class="admin-nav-item" data-view="wholesale">🤝 Wholesale Enquiries</div>
+        </nav>
+
+        <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+          <button id="btnResetDemoData" class="btn btn-sm btn-secondary btn-block" style="color: var(--color-beige); border-color: rgba(255,255,255,0.2); margin-bottom: 0.5rem;" title="Reset all products and test orders to factory defaults">
+            🔄 Reset Demo Catalogue
+          </button>
+          <button id="btnAdminLogout" class="btn btn-sm btn-outline-gold btn-block">
+            🚪 Logout Admin
+          </button>
+        </div>
+      </aside>
+
+      <!-- Admin Main Content Area -->
+      <main class="admin-main">
+        <!-- VIEW 1: Dashboard Overview -->
+        <section id="viewDashboard" class="admin-view">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem;">
+            <div>
+              <span class="section-label">Operations Central</span>
+              <h1 style="font-size: 2rem;">Overview &amp; Metrics</h1>
+            </div>
+            <a href="index.html" class="btn btn-sm btn-secondary" target="_blank">Open Live Storefront &nearr;</a>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <span class="section-label">Total Revenue</span>
+              <div class="metric-val" id="metricRevenue">₹0</div>
+              <span style="font-size: 0.8rem; color: var(--color-muted);">From confirmed customer orders</span>
+            </div>
+            <div class="metric-card">
+              <span class="section-label">Orders Placed</span>
+              <div class="metric-val" id="metricOrdersCount">0</div>
+              <span style="font-size: 0.8rem; color: var(--color-muted);" id="metricOrdersSubtitle">0 pending processing</span>
+            </div>
+            <div class="metric-card">
+              <span class="section-label">Catalogue Items</span>
+              <div class="metric-val" id="metricProductsCount">0</div>
+              <span style="font-size: 0.8rem; color: var(--color-muted);">Across 8 textile categories</span>
+            </div>
+            <div class="metric-card">
+              <span class="section-label">Low Stock Alerts</span>
+              <div class="metric-val" id="metricLowStockCount" style="color: var(--color-warning);">0</div>
+              <span style="font-size: 0.8rem; color: var(--color-muted);">Inventory &le; 10 units</span>
+            </div>
+          </div>
+
+          <!-- Quick Orders Table -->
+          <div class="admin-table-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+              <h3 style="font-size: 1.25rem;">Recent Customer Orders</h3>
+              <button class="btn btn-sm btn-secondary" onclick="document.querySelector('[data-view=orders]').click()">View All Orders &rarr;</button>
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="admin-table" id="dashboardRecentOrdersTable">
+                <thead>
+                  <tr>
+                    <th>Order Ref</th>
+                    <th>Customer</th>
+                    <th>Payment</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Update Status</th>
+                  </tr>
+                </thead>
+                <tbody id="dashboardOrdersBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 2: Product Management -->
+        <section id="viewProducts" class="admin-view" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <div>
+              <span class="section-label">Inventory &amp; Catalogue</span>
+              <h1 style="font-size: 2rem;">Product Management</h1>
+            </div>
+            <button class="btn btn-primary" id="btnOpenAddProductModal">
+              + Add New Textile Product
+            </button>
+          </div>
+
+          <div class="admin-table-card">
+            <div style="overflow-x: auto;">
+              <table class="admin-table" id="adminProductsTable">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>SKU</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Selling Unit</th>
+                    <th>Stock</th>
+                    <th>Quick Stock Adjust</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminProductsBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 3: Orders Management -->
+        <section id="viewOrders" class="admin-view" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <div>
+              <span class="section-label">Fulfillment Registry</span>
+              <h1 style="font-size: 2rem;">Customer Orders</h1>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <select id="adminOrderFilterSelect" class="form-control" style="width: auto; padding: 0.4rem 1.8rem 0.4rem 0.8rem; font-size: 0.85rem;">
+                <option value="all">All Orders</option>
+                <option value="Confirmed">Confirmed</option>
+                <option value="Processing">Processing</option>
+                <option value="Shipped">Shipped</option>
+                <option value="Delivered">Delivered</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="admin-table-card">
+            <div style="overflow-x: auto;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Order Ref</th>
+                    <th>Date</th>
+                    <th>Customer Name</th>
+                    <th>Destination</th>
+                    <th>Items</th>
+                    <th>Total (INR)</th>
+                    <th>Payment</th>
+                    <th>Order Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="adminOrdersFullBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 4: Wholesale Enquiries -->
+        <section id="viewWholesale" class="admin-view" style="display: none;">
+          <div style="margin-bottom: 2rem;">
+            <span class="section-label">B2B Commercial Leads</span>
+            <h1 style="font-size: 2rem;">Wholesale Enquiries</h1>
+            <p style="color: var(--color-muted);">Quotations submitted by boutiques, retailers, and bulk buyers.</p>
+          </div>
+
+          <div class="admin-table-card">
+            <div style="overflow-x: auto;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Ref #</th>
+                    <th>Business / Shop</th>
+                    <th>Contact Person</th>
+                    <th>Phone / WhatsApp</th>
+                    <th>Category</th>
+                    <th>Unit / Quantity</th>
+                    <th>Location</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="adminWholesaleBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add / Edit Product Modal -->
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal-dialog" style="max-width: 680px; padding: 2rem;">
+      <button class="modal-close-btn" id="btnCloseProductModal">&times;</button>
+      <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;" id="productModalTitle">Add Textile Product</h3>
+
+      <form id="productForm" novalidate>
+        <input type="hidden" id="editProductId" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="prodName">Product Title <span class="req">*</span></label>
+            <input type="text" id="prodName" class="form-control" placeholder="e.g. Chanderi Silk Saree" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prodSku">SKU Code <span class="req">*</span></label>
+            <input type="text" id="prodSku" class="form-control" placeholder="e.g. SVT-CHN-001" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="prodCategory">Category <span class="req">*</span></label>
+            <select id="prodCategory" class="form-control" required>
+              <option value="Cotton Fabrics">Cotton Fabrics</option>
+              <option value="Silk Fabrics">Silk Fabrics</option>
+              <option value="Sarees">Sarees</option>
+              <option value="Dress Materials">Dress Materials</option>
+              <option value="Kurtis & Ethnic Wear">Kurtis &amp; Ethnic Wear</option>
+              <option value="Readymade Garments">Readymade Garments</option>
+              <option value="Bedsheets & Home Textiles">Bedsheets &amp; Home Textiles</option>
+              <option value="Wholesale Collections">Wholesale Collections</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prodUnit">Selling Unit <span class="req">*</span></label>
+            <select id="prodUnit" class="form-control" required>
+              <option value="metre">metre (Fabrics / Yardage)</option>
+              <option value="piece">piece (Sarees / Kurtis)</option>
+              <option value="set">set (3-Piece Suits / Bedsheets)</option>
+              <option value="pack">pack (Wholesale Bales)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="prodPrice">Price (₹ INR) <span class="req">*</span></label>
+            <input type="number" id="prodPrice" class="form-control" placeholder="e.g. 1450" required min="1" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prodStock">Available Inventory / Stock <span class="req">*</span></label>
+            <input type="number" id="prodStock" class="form-control" placeholder="e.g. 45" required min="0" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="prodImageUrl">Product Image URL (High Resolution)</label>
+          <input type="url" id="prodImageUrl" class="form-control" placeholder="https://images.unsplash.com/photo-..." />
+          <span style="font-size: 0.75rem; color: var(--color-muted);">In production, files upload directly to Firebase Storage.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="prodDescription">Description &amp; Fabric Specification</label>
+          <textarea id="prodDescription" class="form-control" rows="3" placeholder="Enter weave details, fiber composition, and fabric count..."></textarea>
+        </div>
+
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+          <button type="submit" class="btn btn-primary" style="flex: 1;">Save Product</button>
+          <button type="button" class="btn btn-secondary" onclick="document.getElementById('productModal').classList.remove('active')">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order Detail Inspection Modal -->
+  <div class="modal-backdrop" id="adminOrderDetailModal">
+    <div class="modal-dialog" style="max-width: 720px; padding: 2rem;">
+      <button class="modal-close-btn" id="btnCloseOrderModal">&times;</button>
+      <h3 style="font-size: 1.5rem; margin-bottom: 1.25rem;" id="admOrderModalTitle">Order Details</h3>
+      <div id="admOrderModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

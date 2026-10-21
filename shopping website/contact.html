@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact SV TEXTILES — Customer Care, Fabric Inquiries & Bulk Order Desk." />
+  <title>Contact Customer Care — SV TEXTILES</title>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>" />
+</head>
+<body>
+
+  <!-- Demo Notice -->
+  <aside class="demo-badge-bar">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div>
+        <span class="demo-pill">CUSTOMER SUPPORT</span>
+        <span>Reach our retail and wholesale desks for fabric questions.</span>
+      </div>
+      <div>
+        <a href="shop.html" style="font-weight: 600; text-decoration: underline; color: var(--color-primary);">&larr; Return to Shop</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="menu-toggle" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <a href="index.html" class="brand-logo" aria-label="SV TEXTILES Homepage">
+          <span class="logo-main">SV TEXTILES</span>
+          <span class="logo-sub">Quality &bull; Comfort &bull; Tradition</span>
+        </a>
+      </div>
+
+      <nav class="main-nav" role="navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+        <a href="shop.html" class="nav-link" data-i18n="nav.shopAll">Shop All</a>
+        <a href="wholesale.html" class="nav-link" data-i18n="nav.wholesale">Wholesale</a>
+        <a href="about.html" class="nav-link" data-i18n="nav.aboutUs">About Us</a>
+        <a href="contact.html" class="nav-link active" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switcher" aria-label="Select Language" style="margin-right: 0.25rem;">
+          <button type="button" class="lang-btn active" data-lang="en" title="English">EN</button>
+          <span class="lang-divider">|</span>
+          <button type="button" class="lang-btn" data-lang="ta" title="தமிழ்">தமிழ்</button>
+        </div>
+
+        <button class="action-btn btn-search-trigger" title="Search Catalogue">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <a href="login.html" class="action-btn" title="Customer Account">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="cart.html" class="action-btn" title="Shopping Bag">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge-count header-cart-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section-padding">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <span class="section-label">Get in Touch</span>
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Contact SV TEXTILES</h1>
+        <p style="color: var(--color-muted); max-width: 600px; margin: 0 auto;">
+          Have questions regarding fabric count, delivery timelines, or custom cutting? We are here to help.
+        </p>
+      </div>
+
+      <div class="story-grid" style="align-items: start;">
+        <!-- Contact Form -->
+        <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 2.5rem;">
+          <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--color-primary);">Send Us a Message</h3>
+
+          <form id="contactForm" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent to our customer care team.'); this.reset();">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Your Name <span class="req">*</span></label>
+                <input type="text" class="form-control" required placeholder="Full name" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number <span class="req">*</span></label>
+                <input type="tel" class="form-control" required placeholder="10-digit number" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Email Address <span class="req">*</span></label>
+              <input type="email" class="form-control" required placeholder="email@example.com" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Subject</label>
+              <select class="form-control">
+                <option value="Product Enquiry">Fabric &amp; Product Specification</option>
+                <option value="Order Status">Order Tracking &amp; Delivery</option>
+                <option value="Wholesale">Wholesale &amp; Bulk Purchasing</option>
+                <option value="General">General Feedback</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Your Message <span class="req">*</span></label>
+              <textarea class="form-control" rows="4" required placeholder="How can our textile desk assist you?"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Submit Message &rarr;</button>
+          </form>
+        </div>
+
+        <!-- Info Cards -->
+        <div>
+          <div style="background: var(--color-ivory-soft); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 2rem; margin-bottom: 2rem;">
+            <h4 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--color-primary);">SV Textiles Office &amp; Hub</h4>
+            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--color-charcoal-light); margin-bottom: 1rem;">
+              <strong>Registered Office &amp; Fulfillment Center:</strong><br />
+              Commercial Hub, Textile Market Corridor<br />
+              Erode / Surat / Chennai, India
+            </p>
+            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--color-charcoal-light);">
+              <strong>Operating Hours:</strong><br />
+              Monday to Saturday: 9:30 AM – 7:30 PM IST<br />
+              Sunday: Dispatch processing only
+            </p>
+          </div>
+
+          <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 2rem;">
+            <h4 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--color-primary);">Direct Channels</h4>
+            <p style="font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+              <strong>Customer Support Email:</strong><br />
+              <a href="mailto:care@svtextiles.com" style="color: var(--color-primary); font-weight: 600;">care@svtextiles.com</a>
+            </p>
+            <p style="font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
+              <strong>Wholesale Desk:</strong><br />
+              <a href="mailto:wholesale@svtextiles.com" style="color: var(--color-primary); font-weight: 600;">wholesale@svtextiles.com</a>
+            </p>
+            <a href="https://wa.me/919000000000" class="btn btn-outline-gold btn-block" target="_blank" rel="noopener noreferrer">
+              WhatsApp Instant Help
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 SV TEXTILES. Quality &bull; Comfort &bull; Tradition.</div>
+      <div class="footer-bottom-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Catalogue</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/products-data.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

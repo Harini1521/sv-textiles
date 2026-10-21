@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Customer Profile & Order History — SV TEXTILES" />
+  <title>Customer Account — SV TEXTILES</title>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>" />
+  <style>
+    .account-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .account-sidebar-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 1.75rem;
+    }
+    .account-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .account-nav-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.75rem 0.5rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--color-charcoal);
+      border-bottom: 1px solid var(--color-border-light);
+      cursor: pointer;
+    }
+    .account-nav-btn:hover,
+    .account-nav-btn.active {
+      color: var(--color-primary);
+      padding-left: 0.85rem;
+    }
+    .orders-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .orders-table th {
+      background: var(--color-ivory);
+      padding: 1rem 1.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .orders-table td {
+      padding: 1.25rem;
+      border-bottom: 1px solid var(--color-border-light);
+      font-size: 0.88rem;
+      vertical-align: middle;
+    }
+    .order-status-badge {
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .order-status-badge.confirmed { background: #E3F2FD; color: #1565C0; }
+    .order-status-badge.processing { background: #FFF8E1; color: #F57F17; }
+    .order-status-badge.shipped { background: #E8F5E9; color: #2E7D32; }
+    .order-status-badge.delivered { background: #E8F5E9; color: #1B5E20; }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Notice -->
+  <aside class="demo-badge-bar">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div>
+        <span class="demo-pill">CUSTOMER DASHBOARD</span>
+        <span>Track your orders, view item snapshots, and manage delivery profile.</span>
+      </div>
+      <div>
+        <a href="shop.html" style="font-weight: 600; text-decoration: underline; color: var(--color-primary);">&larr; Continue Shopping</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="menu-toggle" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <a href="index.html" class="brand-logo" aria-label="SV TEXTILES Homepage">
+          <span class="logo-main">SV TEXTILES</span>
+          <span class="logo-sub">Quality &bull; Comfort &bull; Tradition</span>
+        </a>
+      </div>
+
+      <nav class="main-nav" role="navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+        <a href="shop.html" class="nav-link" data-i18n="nav.shopAll">Shop All</a>
+        <a href="wholesale.html" class="nav-link" data-i18n="nav.wholesale">Wholesale</a>
+        <a href="wishlist.html" class="nav-link" data-i18n="nav.wishlist">Wishlist</a>
+        <a href="about.html" class="nav-link" data-i18n="nav.aboutUs">About Us</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switcher" aria-label="Select Language" style="margin-right: 0.25rem;">
+          <button type="button" class="lang-btn active" data-lang="en" title="English">EN</button>
+          <span class="lang-divider">|</span>
+          <button type="button" class="lang-btn" data-lang="ta" title="தமிழ்">தமிழ்</button>
+        </div>
+
+        <button class="action-btn btn-search-trigger" title="Search Catalogue">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <a href="account.html" class="action-btn" title="Customer Account">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="cart.html" class="action-btn" title="Shopping Bag">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge-count header-cart-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section-padding">
+    <div class="container">
+      <div class="account-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="account-sidebar-card">
+          <div class="account-avatar" id="userAvatarChar">C</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 2px;" id="userNameHeading">Customer</h3>
+          <p style="font-size: 0.82rem; color: var(--color-muted); margin-bottom: 1.5rem;" id="userEmailHeading">customer@svtextiles.com</p>
+
+          <button class="account-nav-btn active" id="btnTabOrders">Order History</button>
+          <button class="account-nav-btn" id="btnTabProfile">Delivery Profile</button>
+          <a href="wishlist.html" class="account-nav-btn">My Saved Wishlist</a>
+          <button class="account-nav-btn" id="btnLogout" style="color: var(--color-danger); margin-top: 1rem; border-bottom: none;">
+            Sign Out
+          </button>
+        </aside>
+
+        <!-- Main Account Section -->
+        <section>
+          <!-- Order History Panel -->
+          <div id="panelOrders">
+            <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem;">Your Orders</h2>
+            <p style="color: var(--color-muted); margin-bottom: 1.5rem;">All textile orders recorded for your customer profile.</p>
+
+            <div id="ordersContainer">
+              <!-- Dynamically populated table -->
+            </div>
+          </div>
+
+          <!-- Profile / Address Panel -->
+          <div id="panelProfile" style="display: none; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 2rem;">
+            <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem;">Saved Address &amp; Profile</h2>
+            <p style="color: var(--color-muted); margin-bottom: 2rem;">Manage your default shipping addresses across India.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" value="Ananya Sundaram" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone</label>
+                <input type="text" class="form-control" value="+91 98450 12345" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Primary Delivery Address</label>
+              <textarea class="form-control" rows="2">Flat 402, Heritage Residency, Avinashi Road, Coimbatore, Tamil Nadu — 641018</textarea>
+            </div>
+
+            <button class="btn btn-primary" onclick="alert('Profile address updated successfully!')">Save Profile</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 SV TEXTILES. Quality &bull; Comfort &bull; Tradition.</div>
+      <div class="footer-bottom-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Catalogue</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/products-data.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = window.SVTStore ? window.SVTStore.getCurrentUser() : null;
+      if (!user) {
+        // Auto-login as demo customer if browsing account
+        window.SVTStore.loginCustomer('customer@svtextiles.com', 'demo');
+      }
+
+      const currentUser = window.SVTStore.getCurrentUser();
+      if (currentUser) {
+        document.getElementById('userNameHeading').textContent = currentUser.displayName || 'Customer';
+        document.getElementById('userEmailHeading').textContent = currentUser.email;
+        document.getElementById('userAvatarChar').textContent = (currentUser.displayName || currentUser.email || 'C')[0].toUpperCase();
+      }
+
+      // Tab switcher
+      const tabOrders = document.getElementById('btnTabOrders');
+      const tabProfile = document.getElementById('btnTabProfile');
+      const panelOrders = document.getElementById('panelOrders');
+      const panelProfile = document.getElementById('panelProfile');
+
+      tabOrders.onclick = () => {
+        tabOrders.classList.add('active');
+        tabProfile.classList.remove('active');
+        panelOrders.style.display = 'block';
+        panelProfile.style.display = 'none';
+      };
+
+      tabProfile.onclick = () => {
+        tabProfile.classList.add('active');
+        tabOrders.classList.remove('active');
+        panelOrders.style.display = 'none';
+        panelProfile.style.display = 'block';
+      };
+
+      document.getElementById('btnLogout').onclick = () => {
+        window.SVTStore.logout();
+        window.location.href = 'index.html';
+      };
+
+      // Render Orders
+      const orders = window.SVTStore.getAllOrders();
+      const container = document.getElementById('ordersContainer');
+
+      if (orders.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 3rem; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📦</div>
+            <h4>No Orders Placed Yet</h4>
+            <p style="color: var(--color-muted); margin: 0.5rem 0 1.5rem;">You haven't placed any textile orders yet.</p>
+            <a href="shop.html" class="btn btn-primary">Start Shopping</a>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <table class="orders-table">
+            <thead>
+              <tr>
+                <th>Order Ref</th>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${orders.map(o => {
+                const dateStr = new Date(o.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+                const statusClass = (o.orderStatus || 'confirmed').toLowerCase();
+                return `
+                  <tr>
+                    <td><strong>${o.orderReference}</strong></td>
+                    <td style="color: var(--color-muted);">${dateStr}</td>
+                    <td>${o.items.length} item(s)</td>
+                    <td><strong>₹${o.pricing.finalTotal.toLocaleString('en-IN')}</strong></td>
+                    <td>
+                      <span class="order-status-badge ${statusClass}">${o.orderStatus}</span>
+                    </td>
+                    <td>
+                      <a href="order-confirmation.html?ref=${o.orderReference}" class="btn btn-sm btn-secondary">
+                        View Receipt
+                      </a>
+                    </td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>
